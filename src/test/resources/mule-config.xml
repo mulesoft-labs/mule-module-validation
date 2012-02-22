@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+        http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
+
+    <validation:config/>
+
+    <flow name="testIsDomain">
+        <validation:validate-domain domain="xxx.yy"/>
+    </flow>
+
+    <flow name="testIsValidTld">
+        <validation:validate-top-level-domain topLevelDomain="abc"/>
+    </flow>
+
+    <flow name="testIsValidCountryTld">
+        <validation:validate-top-level-domain-country countryCode="xx"/>
+    </flow>
+
+    <flow name="testIsValidCreditCard">
+        <validation:validate-credit-card-number creditCardNumber="5555444433332222">
+            <validation:credit-card-types>
+                <validation:credit-card-type>MASTERCARD</validation:credit-card-type>
+            </validation:credit-card-types>
+        </validation:validate-credit-card-number>
+    </flow>
+
+    <flow name="testIsValidEmail">
+        <validation:validate-email emailAddress="john.xx@.com"/>
+    </flow>
+
+    <flow name="testIsValidIpAddress">
+        <validation:validate-ip-address ipAddress="127.0.0"/>
+    </flow>
+
+    <flow name="testIsValidPercentage">
+        <validation:validate-percentage percentage="XX%"/>
+    </flow>
+
+    <flow name="testIsValidISBN10">
+        <validation:validate-isbn10 isbnCode="343-34"/>
+    </flow>
+
+    <flow name="testIsValidISBN13">
+        <validation:validate-isbn13 isbnCode="343-34"/>
+    </flow>
+
+    <flow name="testIsValidURL">
+        <validation:validate-url url="http://localhost:8080"/>
+    </flow>
+
+    <flow name="testIsValidTime">
+        <validation:validate-time time="6:34PM" locale="US"/>
+    </flow>
+
+    <flow name="testIsValidDate">
+        <validation:validate-date date="13/04/2010" locale="US"/>
+    </flow>
+
+    <flow name="testIsValidUsingRegex">
+        <validation:validate-using-regex value="94105-DD">
+            <validation:regexs>
+                <!-- Matches Canadian PostalCode formats with or without spaces (e.g., "T2X 1V4" or "T2X1V4") -->
+                <validation:regex>^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$</validation:regex>
+                <!-- Matches all US format zip code formats (e.g., "94105-0011" or "94105")  -->
+                <validation:regex>^\d{5}(-\d{4})?</validation:regex>
+            </validation:regexs>
+        </validation:validate-using-regex>
+    </flow>
+
+    <flow name="testIsValidLong">
+        <validation:validate-long value="999999999999999999999999999999999999999999999999999999999999999999999999999999999999999" locale="US"/>
+    </flow>
+</mule>
