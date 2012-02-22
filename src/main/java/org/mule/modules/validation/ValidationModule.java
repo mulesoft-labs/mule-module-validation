@@ -34,6 +34,7 @@ import org.mule.api.annotations.Module;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
+import org.mule.api.annotations.param.Payload;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -552,7 +553,7 @@ public class ValidationModule {
      * @throws InvalidException if not valid
      */
     @Processor
-    public void validateNotEmpty(Object object, @Optional @Default("org.mule.modules.validation.InvalidException") String exceptionClassName) throws Exception {
+    public void validateNotEmpty(@Optional @Default("#[payload]") Object object, @Optional @Default("org.mule.modules.validation.InvalidException") String exceptionClassName) throws Exception {
         if (object == null) {
             throw buildException(exceptionClassName);
         }
