@@ -1,0 +1,6 @@
+org.mule.modules.validation
+org.mule.modules.validation.adapters
+org.mule.modules.validation.config
+org.mule.modules.validation.processors
+org.mule.modules.validation.transformers
+
