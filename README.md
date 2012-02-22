@@ -1,38 +1,14 @@
+Mule Validation Module
+=========================
 
-WELCOME
-=======
-Congratulations you have just created a new Mule Module!
+A common issue when receiving data either electronically or from user input is verifying the integrity of the data. This work is repetitive and becomes even more complicated when different sets of validation rules need to be applied to the same set of data based on locale. This module addresses some of these issues to speed development and maintenance of validation rules.
 
-This wizard created a number of new classes and resources useful for Mule
-modules.  Each of the created files contains documentation and TODO
-items where necessary.  Here is an overview of what was created.
+Installation and Usage
+----------------------
 
-./pom.xml:
-A maven project descriptor that describes how to build this module.
+For information about usage and installation you can check our documentation at http://mulesoft.github.com/mule-module-validation.
 
-./LICENSE.md:
-The open source license text for this project.
+Reporting Issues
+----------------
 
-TESTING
-=======
-
-This  project also contains test classes that can be run as part of a test
-suite.
-
-ADDITIONAL RESOURCES
-====================
-Everything you need to know about getting started with Mule can be found here:
-http://www.mulesoft.org/documentation/display/MULE3INTRO/Home
-
-There further useful information about extending Mule here:
-http://www.mulesoft.org/documentation/display/DEVKIT/Home
-
-Remember if you get stuck you can try getting help on the Mule user list:
-http://www.mulesoft.org/email-lists
-
-Also, MuleSoft, the company behind Mule, offers 24x7 support options:
-http://www.mulesoft.com/enterprise-subscriptions-and-support
-
-Enjoy your Mule ride!
-
-The Mule Team
+We use GitHub:Issues for tracking issues with this module. You can report new issues at this link https://github.com/mulesoft/mule-module-validation/issues.
