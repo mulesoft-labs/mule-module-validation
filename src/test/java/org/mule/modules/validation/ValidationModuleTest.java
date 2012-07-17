@@ -97,9 +97,15 @@ public class ValidationModuleTest extends FunctionalTestCase
     {
         Flow flow = lookupFlowConstruct(flowName);
         MuleEvent event = AbstractMuleTestCase.getTestEvent(null);
-        MuleEvent responseEvent = flow.process(event);
+
+        try
+        {
+            MuleEvent responseEvent = flow.process(event);
+        } catch( Exception e ) {
+            return e.getCause();
+        }
         
-        return responseEvent.getMessage().getExceptionPayload().getRootException();
+        return null;
     }
 
     /**
