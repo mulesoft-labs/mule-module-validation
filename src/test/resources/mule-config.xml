@@ -73,4 +73,8 @@
     <flow name="testIsValidLong">
         <validation:validate-long value="999999999999999999999999999999999999999999999999999999999999999999999999999999999999999" locale="US"/>
     </flow>
+
+    <flow name="testIsValidLength">
+        <validation:validate-length input="john" minValue="8" maxValue="16" />
+    </flow>
 </mule>

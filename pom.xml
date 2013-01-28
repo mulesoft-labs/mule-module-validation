@@ -89,6 +89,11 @@
             <url>http://repository.mulesoft.org/releases/</url>
             <layout>default</layout>
         </repository>
+        <repository>
+            <id>mulesoft-snapshots</id>
+            <name>MuleSoft Snapshots</name>
+            <url>http://repository.mulesoft.org/snapshots/</url>
+        </repository>
     </repositories>
 
     <scm>

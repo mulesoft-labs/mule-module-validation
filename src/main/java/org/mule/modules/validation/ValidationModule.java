@@ -31,6 +31,7 @@ import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.transport.NullPayload;
+import org.mule.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -55,7 +56,7 @@ public class ValidationModule {
      *
      * @param domain                   Domain name to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateDomain(String domain, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -74,7 +75,7 @@ public class ValidationModule {
      *
      * @param topLevelDomain           Domain name to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateTopLevelDomain(String topLevelDomain, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -93,7 +94,7 @@ public class ValidationModule {
      *
      * @param countryCode              Country code to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateTopLevelDomainCountry(String countryCode, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -112,7 +113,7 @@ public class ValidationModule {
      * @param creditCardNumber         Credit card number to validate
      * @param creditCardTypes          Credit card types to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateCreditCardNumber(String creditCardNumber, List<CreditCardType> creditCardTypes, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -137,7 +138,7 @@ public class ValidationModule {
      *
      * @param emailAddress             Email address to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateEmail(String emailAddress, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -155,7 +156,7 @@ public class ValidationModule {
      *
      * @param ipAddress                IP address to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateIpAddress(String ipAddress, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -173,7 +174,7 @@ public class ValidationModule {
      *
      * @param percentage               Percentage to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validatePercentage(String percentage, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -191,7 +192,7 @@ public class ValidationModule {
      *
      * @param isbnCode                 ISBN code to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor(name = "validate-isbn10")
     public void validateISBN10(String isbnCode, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -209,7 +210,7 @@ public class ValidationModule {
      *
      * @param isbnCode                 ISBN code to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor(name = "validate-isbn13")
     public void validateISBN13(String isbnCode, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -231,7 +232,7 @@ public class ValidationModule {
      * @param allowLocalURLs           Allow local URLs, such as http://localhost/ or http://machine/ .
      * @param noFragments              Enabling this options disallows any URL fragments.
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateUrl(String url,
@@ -271,7 +272,7 @@ public class ValidationModule {
      * @param locale                   The locale to use for the format
      * @param pattern                  The pattern used to format the value
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateTime(String time, @Optional @Default("US") Locale locale, @Optional String pattern, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -297,7 +298,7 @@ public class ValidationModule {
      * @param locale                   The locale to use for the format
      * @param pattern                  The pattern used to format the value
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateDate(String date, @Optional @Default("US") Locale locale, @Optional String pattern, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -323,7 +324,7 @@ public class ValidationModule {
      * @param regexs                   Set of regular expressions to test against
      * @param caseSensitive            when true matching is case sensitive, otherwise matching is case in-sensitive
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateUsingRegex(String value, List<String> regexs, @Optional @Default("false") boolean caseSensitive, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -345,7 +346,7 @@ public class ValidationModule {
      * @param minValue                 The minimum value
      * @param maxValue                 The maximum value
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateLong(String value, @Optional @Default("US") Locale locale, @Optional String pattern,
@@ -386,7 +387,7 @@ public class ValidationModule {
      * @param minValue                 The minimum value
      * @param maxValue                 The maximum value
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateInteger(String value, @Optional @Default("US") Locale locale, @Optional String pattern,
@@ -427,7 +428,7 @@ public class ValidationModule {
      * @param minValue                 The minimum value
      * @param maxValue                 The maximum value
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateFloat(String value, @Optional @Default("US") Locale locale, @Optional String pattern,
@@ -468,7 +469,7 @@ public class ValidationModule {
      * @param minValue                 The minimum value
      * @param maxValue                 The maximum value
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateDouble(String value, @Optional @Default("US") Locale locale, @Optional String pattern,
@@ -509,7 +510,7 @@ public class ValidationModule {
      * @param minValue                 The minimum value
      * @param maxValue                 The maximum value
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateShort(String value, @Optional @Default("US") Locale locale, @Optional String pattern,
@@ -546,7 +547,7 @@ public class ValidationModule {
      *
      * @param object                   Object to validate
      * @param customExceptionClassName Class name of the exception to throw
-     * @throws InvalidException if not valid
+     * @throws Exception if not valid
      */
     @Processor
     public void validateNotEmpty(@Optional @Default("#[payload]") Object object, @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
@@ -570,6 +571,31 @@ public class ValidationModule {
             if (((String) object).length() == 0) {
                 throw buildException(customExceptionClassName);
             }
+        }
+    }
+
+    /**
+     * If the specified <code>input</code> is not within the valid limits throw an exception.
+     * <p/>
+     * {@sample.xml ../../../doc/mule-module-validation.xml.sample validation:validate-length}
+     *
+     * @param input                     String to validate
+     * @param minValue                  the minimum value
+     * @param maxValue                  the maximum value
+     * @param customExceptionClassName  Class name of the exception to throw
+     * @throws Exception Exception if not valid
+     */
+    @Processor
+    public void validateLength(String input,
+                               @Optional @Default("0") Integer minValue, Integer maxValue,
+                               @Optional @Default("org.mule.modules.validation.InvalidException") String customExceptionClassName) throws Exception {
+        if(input == null || maxValue == null) {
+            throw buildException(customExceptionClassName);
+        }
+
+        int inputLength = input.length();
+        if(inputLength < minValue || inputLength > maxValue) {
+            throw buildException(customExceptionClassName);
         }
     }
 

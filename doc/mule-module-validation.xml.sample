@@ -66,3 +66,6 @@
 <!-- BEGIN_INCLUDE(validation:validate-not-empty) -->
 <validation:validate-not-empty object-ref="#[payload]"/>
 <!-- END_INCLUDE(validation:validate-not-empty) -->
+<!-- BEGIN_INCLUDE(validation:validate-length) -->
+<validation:validate-length input="#[payload]" maxValue="#[flowVars['maxValue']]"/>
+<!-- END_INCLUDE(validation:validate-length) -->

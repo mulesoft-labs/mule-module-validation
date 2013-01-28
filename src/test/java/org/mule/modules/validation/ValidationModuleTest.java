@@ -88,6 +88,13 @@ public class ValidationModuleTest extends FunctionalTestCase
         assertTrue(runFlow("testIsValidUsingRegex") instanceof InvalidException);
     }
 
+    @Test
+    public void testIsValidLength() throws Exception
+    {
+        assertTrue(runFlow("testIsValidLength") instanceof InvalidException);
+    }
+
+
     /**
     * Run the flow specified by name and assert equality on the expected output
     *
